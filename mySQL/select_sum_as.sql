@@ -1,0 +1,1 @@
+SELECT COUNT(first_name) AS CitySum FROM pivots.core_data  WHERE city = 'Mission';
