@@ -1,0 +1,6 @@
+SELECT
+    table_A.column1,
+    table_A.column2,
+    table_B.column1
+FROM table_A
+INNER JOIN table_B ON table_B.foreign_key = table_A.primary_key
