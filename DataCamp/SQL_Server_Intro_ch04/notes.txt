@@ -1,0 +1,17 @@
+variable names start with @ symbol
+
+DECLARE @some_int some_int
+DECLARE @some_text VARCHAR(1000)
+
+SET @some_int = 5
+SET @some_text = 'Text'
+
+SELECT
+    column1,
+    column2,
+    column3 INTO #temporary_table
+FROM existing_table
+WHERE
+    --some conditions
+
+DROP #temporary_table  --get rid of it when done
