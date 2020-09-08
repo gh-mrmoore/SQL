@@ -1,0 +1,18 @@
+primary keys
+
+no duplicates, no nulls
+
+must hold for current or future data (time invariant)
+
+(won't ~always~ work for firstname, lastname example previously...)
+
+CREATE TABLE ___ (
+    a integer,
+    b integer,
+    c integer,
+    PRIMARY KEY (a, c)
+);
+
+
+ALTER TABLE ____
+ADD CONSTRAINT {{name}} PRIMARY KEY (column_name);

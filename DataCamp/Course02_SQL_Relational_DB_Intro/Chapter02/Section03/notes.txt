@@ -1,0 +1,10 @@
+not-null constraint -> true for current & future state of database
+(can be added at table creation or later with ALTER)
+
+defaults allow for null values
+
+compare null to null results in a false values
+
+unique constraint -> no duplicates allowed, reduce redundancy
+
+ADD CONSTRAINT if changing to unique values after the fact
