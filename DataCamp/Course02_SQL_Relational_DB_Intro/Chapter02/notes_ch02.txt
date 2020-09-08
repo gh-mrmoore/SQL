@@ -1,0 +1,25 @@
+After building a simple database, it's now time to make use of the features. 
+You'll specify data types in columns, enforce column uniqueness, 
+and disallow NULL values in this chapter.
+
+Better data quality with constraints
+
+Types of database constraints
+
+Conforming with data types
+
+Type CASTs
+
+Working with data types
+
+Change types with ALTER COLUMN
+
+Convert types USING a function
+
+The not-null and unique constraints
+
+Disallow NULL values with SET NOT NULL
+
+What happens if you try to enter NULLs?
+
+Make your columns UNIQUE with ADD CONSTRAINT

@@ -5,3 +5,28 @@ SELECT
 FROM information_schema.columns
 WHERE
     table_name = 'pg_config;
+
+
+In this chapter, you'll create your very first database with a set of simple SQL commands. 
+Next, you'll migrate data from existing flat tables into that database. 
+You'll also learn how meta-information about a database can be queried.
+
+Introduction to relational databases
+
+Attributes of relational databases
+
+Query information_schema with SELECT
+
+Tables: At the core of every database
+
+CREATE your first few TABLEs
+
+ADD a COLUMN with ALTER TABLE
+
+Update your database as the structure changes
+
+RENAME and DROP COLUMNs in affiliations
+
+Migrate data with INSERT INTO SELECT DISTINCT
+
+Delete tables with DROP TABLE

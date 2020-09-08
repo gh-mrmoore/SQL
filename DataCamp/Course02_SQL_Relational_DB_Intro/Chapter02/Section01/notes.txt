@@ -1,0 +1,26 @@
+attribute constraints
+key constraints
+referential integrity constraints
+
+solve data quality issues
+
+constraints can govern what operations can be performed between columns
+(ie between string and integer)
+
+can use CAST to turn string to integer
+
+SELECT temperature * CAST(wind_speed AS integer) AS wind_chill
+FROM weather;
+
+
+
+
+data types (length or type (char, varchar, int, etcetera))
+
+ALTER TABLE ___
+ALTER column ___
+TYPE varchar(123);
+
+ALTER TABLE _____
+ALTER COLUMN _____
+TYPE _____
