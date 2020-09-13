@@ -1,0 +1,9 @@
+surrogate keys exist only for the sake of having a primary key
+
+ADD COLUMN id serial PRIMARY KEY 
+
+UPDATE table_name
+SET column3 = CONCAT(column1, column2)
+
+ALTER TABLE table_name
+ADD CONSTRAINT pk PRIMARY KEY (column3)

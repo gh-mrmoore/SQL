@@ -1,0 +1,18 @@
+referential integrity
+
+records can only point to existing values in another table/column
+
+enforced via foreign keys
+
+can handle potential violations
+
+ON DELETE NO ACTION is automatically appended
+
+b_id integer REFERENCES b(id) ON DELETE CASCADE
+
+also RESTRICT
+
+also SET NULL
+
+also SET DEFAULT (if there is a DEFAULT specified)
+

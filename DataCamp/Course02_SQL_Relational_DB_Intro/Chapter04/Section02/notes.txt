@@ -1,0 +1,22 @@
+tables with two foreign keys facilitate N:M relationships
+
+can also include additional attributes
+
+'crosswalk'
+
+example:
+CREATE TABLE affiliations (
+    professor_id integer REFERENCES professors (id),
+    organization_id varchar(256) REFERENCES organization (id),
+    function varchar(256)
+);
+
+//////////////////////////////////////////////////////////////
+
+Here's a way to update columns of a table based on 
+values in another table:
+
+UPDATE table_a
+SET column_to_update = table_b.column_to_update_from
+FROM table_b
+WHERE condition1 AND condition2 AND ...;

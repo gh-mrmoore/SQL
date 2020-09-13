@@ -1,0 +1,25 @@
+relationship types
+1-1, 1-many (drawn with rhombus on diagram)
+
+foreign keys point to primary keys of another table
+
+data types must be same, FK must exist in PK (referential integrity)
+
+duplicates and nulls allowed
+
+example:
+
+CREATE TABLE manufacturers (
+    name varchar(255) PRIMARY KEY
+);
+
+INSERT INTO manufacturers
+VALUES ('Ford'), ('VW'), ('GM');
+
+CREATE TABLE cars (
+    model varchar(255) PRIMARY KEY
+    manufacturer_name integer REFERENCES manufacturers (name)
+);
+
+INSERT INTO cars
+VALUES ('Ranger', 'Ford'), ('Beetle', 'VW');
