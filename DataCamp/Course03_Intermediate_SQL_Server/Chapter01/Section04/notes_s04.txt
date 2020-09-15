@@ -1,0 +1,7 @@
+COUNT(*) FROM Incidents
+
+COUNT(DISTINCT column_name)
+
+combine with ASC (default) or DESC and GROUP or HAVING
+
+SUM()

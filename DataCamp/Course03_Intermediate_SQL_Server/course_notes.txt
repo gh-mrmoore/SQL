@@ -1,0 +1,4 @@
+Ch01: Summarizing Data
+Ch02: Date and math functions
+Ch03: Processing data with T-SQL
+Ch04: Window functions

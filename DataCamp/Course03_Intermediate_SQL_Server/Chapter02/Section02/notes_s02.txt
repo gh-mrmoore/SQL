@@ -1,0 +1,20 @@
+ROUND(number, length [,function])
+
+SELECT DurationSeconds
+ROUND(DurationSeconds, 0) AS RoundToZero,  --round to 0 decimal points
+ROUND(DurationSeconds, 1) AS RoundToOne    --round to 1 decimal point
+FROM Incidents
+
+pass negatives to round on left side of decimal
+SELECT DurationSeconds
+ROUND(DurationSeconds, -1) AS RoundToTen,  --round to tens
+ROUND(DurationSeconds, -2) AS RoundToHundred    --round to hundreds
+FROM Incidents
+
+
+Truncate
+
+SELECT Profit
+ROUND(DurationSeconds, 0) AS RoundingToWhole,
+ROUND(DurationSeconds, 0, 1) AS Truncating
+FROM Incidents

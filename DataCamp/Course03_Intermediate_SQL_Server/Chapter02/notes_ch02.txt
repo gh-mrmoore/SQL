@@ -1,0 +1,11 @@
+DATEPART
+
+DD
+MM
+YY
+HH
+
+DATEADD() - returns a date
+
+DATEDIFF() - returns a number
+

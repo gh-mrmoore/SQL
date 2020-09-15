@@ -1,0 +1,13 @@
+more math!
+
+ABS(number)  --for absolute value
+
+these functions are applied to every item in column
+
+SELECT SQRT(9) AS Sqrt,
+    SQUARE(9) AS Square
+
+LOG(number [,Base])
+
+SELECT DurationSeconds, LOG(DurationSeconds, 10) AS LogSeconds
+FROM Incidents

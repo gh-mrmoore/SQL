@@ -1,0 +1,41 @@
+Variables
+
+DECLARE @__variable_name__ data_type
+
+VARCHAR(n), INT, DECIMAL(p, s) or NUMERIC(p, s)  --p to the left of decimal, s to the right
+
+DECLARE @Snack VARCHAR(10)
+SET @Snack = 'Cookies'
+SELECT @Snack
+
+...or...
+
+DECLARE @Snack VARCHAR(10)
+SELECT @Snack = 'Candy'
+SELECT @Snack  --must have this statement to return the value
+
+WHILE (conditional)
+BEGIN
+..include code to run...
+END (or BREAK)
+
+DECLARE @ctr INT
+SET @ctr = 1
+WHILE @ctr < 10
+    BEGIN 
+        SET @ctr = @ctr + 1
+        --can BREAK if so desired...
+    END
+SELECT @ctr
+
+...or...
+
+DECLARE @ctr INT
+SET @ctr = 1
+WHILE @ctr < 10
+    BEGIN 
+        SET @ctr = @ctr + 1
+        IF @ctr = 4
+        BREAK
+    END
+SELECT @ctr

@@ -1,0 +1,11 @@
+MIN(column_name)
+MAX(column_name)
+AVG(column_name)
+
+WHERE
+GROUP BY
+
+...or...
+GROUP BY
+HAVING
+

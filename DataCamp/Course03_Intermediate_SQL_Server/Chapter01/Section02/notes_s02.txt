@@ -1,0 +1,14 @@
+IS NULL
+...or...
+IS NOT NULL
+
+--using NULL to find and replace values...
+SELECT TradeGDPPercent, ImportGoodPercent
+ISNULL(TradeGDPPercent, ImportGoodPercent) AS NewPercent
+FROM EconomicIndicators
+
+COALESCE returns first non-missing values
+
+SELECT TradeGDPPercent, ImportGoodPercent
+COALESCE(TradeGDPPercent, ImportGoodPercent, 'N/A') AS NewPercent
+FROM EconomicIndicators

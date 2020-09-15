@@ -1,0 +1,22 @@
+CASE
+    WHEN Boolean_expression THEN result_expression [ ...n ]
+    [ ELSE else_result_expression]
+END
+
+SELECT Continent
+CASE
+    WHEN Continent = 'Europe' or Continent = 'Asia' THEN 'Eurasia'
+    ELSE Continent  --could also use ELSE 'Other'
+    END AS NewContinent
+FROM EconomicIndicators
+
+Create groups (aka bins)
+SELECT Country, LifeExp,
+CASE WHEN LifeExp < 30 THEN 1
+    WHEN LifeExp > 29 AND LifeExp < 40 THEN 2
+    WHEN LifeExp > 39 AND LifeExp < 50 THEN 3
+    WHEN LifeExp > 49 AND LifeExp < 60 THEN 4
+    ELSE 5
+    END AS LifeExpGroup
+FROM EconomicIndicators
+WHERE Year = 2007
