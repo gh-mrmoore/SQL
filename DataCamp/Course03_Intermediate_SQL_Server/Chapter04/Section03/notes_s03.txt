@@ -1,0 +1,19 @@
+Increasing window complexity
+
+can add ORDER BY to aggregation windows
+
+--example
+SELECT SalesPerson, SalesYear, CurrentQuota
+    SUM(CurrentQuota)
+    OVER (PARTITION BY SalesYear ORDER BY ModifiedDate) AS RunningTotal,
+    ModifiedDate AS ModDate
+FROM SaleGoal
+
+ROW_NUMBER()
+>>requires ORDER BY
+
+--example
+SELECT SalesPerson, SalesYear, CurrentQuota,
+    ROW_NUMBER()
+    OVER (PARTITION BY SalesPerson ORDER BY SalesYear) AS QuotabySalesPerson
+FROM SaleGoal

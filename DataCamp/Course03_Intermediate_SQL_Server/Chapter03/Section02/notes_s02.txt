@@ -1,0 +1,10 @@
+Derived tables
+
+query acting as a table (usu. for aggregated data)
+
+breakdown a complex query in to intermediate steps
+
+SELECT a.* FROM Kidney a
+JOIN (SELECT AVG(Age) AS AverageAge
+    FROM Kidney) b
+ON a.Age = b.AverageAge

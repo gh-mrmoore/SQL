@@ -1,0 +1,18 @@
+Window Functions
+
+process data separately as groups
+
+SELECT SalesPerson, SalesYear, CurrentQuota, ModifiedDate
+FROM SaleGoal
+WHERE SalesYear = 2011
+
+create window with OVER clause
+PARTITION BY creates the frame (if absent, frame is entire table)
+arrange using ORDER BY
+
+--example
+SELECT SalesPerson, SalesYear, CurrentQuota
+    SUM(CurrentQuota)  --can use other aggregations, ie COUNT
+    OVER (PARTITION BY SalesYear) AS YearlyTotal,
+    ModifiedDate AS ModDate
+FROM SaleGoal

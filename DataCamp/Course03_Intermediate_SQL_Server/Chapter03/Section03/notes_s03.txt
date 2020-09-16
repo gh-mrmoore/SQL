@@ -1,0 +1,22 @@
+Common Table Expressions (CTE)
+
+Another type of derived Table
+
+Table defined before you use it, then use it as a Table
+
+--Create a CTE to get the maximum BloodPressureAge by Age
+--CTE definitions start with the keyword WITH
+-- Followed by the CTE names and the columns it contains
+WITH BloodPressureAge(Age, MaxBloodPressure)
+AS
+--define the CTE query
+(SELECT Age, MAX(BloodPressure) AS MaxBloodPressure  --the columns from the definition above
+    FROM Kidney
+    GROUP BY Age)
+
+SELECT a.Age, MIN(a.BloodPressure), b.MaxBloodPressure
+FROM Kidney a
+--Join the CTE with the Table
+JOIN BloodPressureAge b
+    ON a.Age = b.Age
+GROUP BY a.Age, b.MaxBloodPressure

@@ -1,0 +1,42 @@
+Common window functions
+
+FIRST_VALUE()
+LAST_VALUE()
+>>>must be ordered...
+
+--example
+--Selecte the columns
+SELECT SalesPerson, SalesYear, CurrentQuota
+    --First value from every window
+    FIRST_VALUE(CurrentQuota)
+    OVER (PARTITION BY SalesYear ORDER BY ModifiedDate) AS StartQuota,
+    --Last value from every window
+    LAST_VALUE(CurrentQuota)
+    OVER (PARTITION BY SalesYear ORDER BY ModifiedDate) AS EndQuota,
+    ModifiedDate AS ModDate
+FROM SaleGoal
+
+LEAD() compare current row to next value
+>>>requires use of ORDER BY
+
+--example
+SELECT SalesPerson, SalesYear, CurrentQuota
+-- Create a window function to get the values from the next row
+    LEAD(CurrentQuota)
+    OVER (PARTITION BY SalesYear ORDER BY ModifiedDate) AS NextQuota,
+    ModifiedDate AS ModDate
+FROM SaleGoal
+
+LAG()
+query value from previous row
+>>>requires use of ORDER BY
+
+first value ends up being NULL
+
+--example
+SELECT SalesPerson, SalesYear, CurrentQuota
+-- Create a window function to get the values from the previous row
+    LAG(CurrentQuota)
+    OVER (PARTITION BY SalesYear ORDER BY ModifiedDate) AS NextQuota,
+    ModifiedDate AS ModDate
+FROM SaleGoal

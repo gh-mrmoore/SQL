@@ -1,0 +1,39 @@
+STDEV() calculates standard deviation (for entire table or windows)
+
+--example1
+SELECT SalesPerson, SalesYear, CurrentQuota
+    STDEV(CurrentQuota)
+    OVER () AS StandardDev
+    ModifiedDate AS ModDate
+FROM SaleGoal
+
+--example2
+SELECT SalesPerson, SalesYear, CurrentQuota
+    STDEV(CurrentQuota)
+    OVER (PARTITION BY SalesYear ORDER BY SalesYear) AS StandardDev
+    ModifiedDate AS ModDate
+FROM SaleGoal
+
+
+Calculate MODE
+>>no function, must use CTE
+
+WITH QuotaCount AS (
+SELECT SalesPerson, SalesYear, CurrentQuota,
+    ROW_NUMBER()
+    OVER (PARTITION BY CurrentQuota ORDER BY CurrentQuota) AS QuotaList
+FROM SaleGoal
+)
+Select * FROM QuotaCount
+
+
+--continued example
+WITH QuotaCount AS (
+SELECT SalesPerson, SalesYear, CurrentQuota,
+    ROW_NUMBER()
+    OVER (PARTITION BY CurrentQuota ORDER BY CurrentQuota) AS QuotaList
+FROM SaleGoal
+)
+
+Select * FROM QuotaCount
+WHERE QuotaList IN (SELECT MAX(QuotaList) FROM QuotaCount)
