@@ -1,0 +1,19 @@
+Building dates from parts
+
+6 functions to build dates & times
+
+DATEFROMPARTS(year, month, day)
+TIMEFROMPARTS(hour, minute, second, fraction, precision)
+
+DATETIMEFROMPARTS()
+
+DATETIME2FROMPARTS() - gives more precision
+
+SMALLDATETIMEFROMPARTS() - legacy
+
+DATETIMEOFFSETFROMPARTS() - specify time zone as well as time
+
+DATETIMEFROMPARTS(1918, 11, 11, 05, 45, 17, 995) AS DT,
+DATETIME2FROMPARTS(1918, 11, 11, 05, 45, 17, 0, 0) AS DT20,
+DATETIME2FROMPARTS(1918, 11, 11, 05, 45, 17, 995, 3) AS DT23,
+DATETIME2FROMPARTS(1918, 11, 11, 05, 45, 17, 9951234, 7) AS DT27;

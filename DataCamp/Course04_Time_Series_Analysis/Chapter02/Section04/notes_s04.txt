@@ -1,0 +1,10 @@
+Invalid Dates
+
+"Error safe" date conversion functions
+
+"Unsafe" >> CAST(), CONVERT(), PARSE()
+Safer >> TRY_CAST(), TRY_CONVERT(), TRY_PARSE() (SQL Server 2012 and newer)
+
+TRY functions return null if there's an error of some kind, query doesn't crash...
+safe functions don't have notable performance impact
+

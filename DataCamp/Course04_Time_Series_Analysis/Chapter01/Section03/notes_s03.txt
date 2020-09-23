@@ -1,0 +1,69 @@
+Working with calendar tables
+
+General columns (date, day name, is weekend?)
+Calendar year (month, quarter, year)
+Fiscal year (fiscal week of year, fiscal quarter, fiscal first day of year)
+Specialized columns (holidays, lunar details, ISO week of year)
+
+ideally built once and not updated...
+
+CREATE TABLE dbo.Calendar
+(
+    DateKey INT NOT NULL,
+    [Date] DATE NOT NULL,
+    [Day] TINYINT NOT NULL,
+    DayOfWeek TINYINT NOT NULL,
+    DayName VARCHAR(10) NOT NULL,
+    ...
+)
+
+Can significantly improve queries...
+
+SELECT
+    c.Date
+FROM dbo.Calendar c
+WHERE
+    c.MonthName = 'April'
+    AND c.DayName = 'Saturday'
+    AND c.CalendarYear = 2020
+ORDER BY
+    c.Date
+
+APPLY()
+executes function to each row in a result set
+good for simplifying calculations
+
+SELECT
+    FYStart = 
+        DATEADD(MONTH, -6,
+            DATEADD(YEAR,
+                DATEDIFF(YEAR, 0,
+                    DATEADD(MONTH, 6, d.[date])), 0)),
+    FiscalDayOfYear = 
+        DATEDIFF(DAY,
+            DATEADD(MONTH, -6
+                DATEADD(YEAR,
+                    DATEDIFF(YEAR, 0,
+                        DATEADD(MONTH, 6, d.[date])), 0)), d.[Date]) + 1,
+    FiscalWEekOfYear = 
+        DATEDIFF(WEEK,
+            DATEADD(MONTH, -6,
+                DATEADD(YEAR,
+                    DATEDIFF(YEAR, 0,
+                        DATEADD(MONTH, 6, d.[date])), 0)), d.[Date]) + 1
+FROM dbo.Calendar d;
+
+>>>Change To<<<
+SELECT
+    fy.FYStart,
+    FiscalDayOfYear = DATEDIFF(DAY, fy.FYStart, d.[Date]) + 1,
+    FiscalWEekOfYear = DATEDIFF(WEEK, fy.FYStart, d.[Date]) + 1
+FROM dbo.Calendar d
+    CROSS APPLY
+    (
+        SELECT FYStart = 
+            DATEADD(MONTH, -6,
+                DATEADD(YEAR,
+                    DATEDIFF(YEAR, 0,
+                        DATE ADD(MONTH, 6, d.[date])), 0))
+    ) fy;

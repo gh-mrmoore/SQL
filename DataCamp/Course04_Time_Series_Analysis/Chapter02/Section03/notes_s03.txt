@@ -1,0 +1,27 @@
+Offsets
+
+DATETIME AND DATETIME2 have no concept of time zone
+
+DATETIMEOFFSET type (date, time, UTC offset) takes 10 bytes (compared to 6-8 or so for other types)
+
+switch offset assumes UTC
+
+DECLARE @SomeDate DATETIMEOFFSET = 
+    '2019-04-10 12:59:02.3908505 -04:00';
+
+SELECT
+    SWITCHOFFSET(@SomeDate, '-07:00') AS LATime;   --converts the offset from EST to PST in the US
+
+TODATETIMEOFFSET
+takes input date and time zone
+
+DECLARE @SomeDate DATETIME2(3) = 
+    '2019-04-10 12:59:02.390';
+
+SELECT
+    TODATETIMEOFFSET(@SomeDate, '-04:00') AS EDT;
+
+Time zone swaps:
+have to add hours first, then make the correct TODATETIMEOFFSET
+
+sys.time_zone_info returns time zones and current time zone offsets (no history, though)

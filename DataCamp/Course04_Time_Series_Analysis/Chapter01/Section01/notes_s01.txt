@@ -1,0 +1,32 @@
+Building dates
+
+SELECT
+    GETDATE() AS DateTime_LTz
+    GETUTCDATE() AS DateTime_UTC
+
+SELECT
+    SYSDATETIME() AS DateTime2_LTz
+    SYSUTCDATETIME() AS DateTime2_UTC
+
+DECLARE
+    @SomeDate DATETIME2(3) = '2019-03-01 08:17:19.332';
+
+SELECT YEAR(@SomeDate)
+
+SELECT MONTH(@SomeDate)
+
+SELECT DAY(@SomeDate)
+
+Functions:
+SELECT
+    DATEPART(Year, @dt) AS TheYear;
+
+SELECT
+    DATENAME(MONTH, @dt) AS TheMonth;
+
+Go all the way down to nanoseconds
+
+DATEADD() moves forward or backward
+
+DATEDIFF() compares how much time between two dates
+

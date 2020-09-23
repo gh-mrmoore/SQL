@@ -1,0 +1,34 @@
+Formatting dates for reporting
+
+CAST() - convert integer to decimal, etc (part of ANSI SQL standard, but no control over some formatting with strings...)
+CONVERT()
+FORMAT()
+
+
+DECLAREE
+    @SomeDate DATETIME2(3) = '1991-06094 08:00:09',
+    @SomeString NVARCHAR(30) = '1991-06094 08:00:09',
+    @OldDateTime DATETIME = '1991-06094 08:00:09';
+
+SELECT
+    CAST(@SomeDate AS NVARCHAR(30)) AS DateToString,
+    CAST(@SomeString AS DATETIME2(3)) AS StringToDate,
+    CAST(@OldDateTime AS NVARCHAR(30)) AS OldDateToString;
+
+CONVERT() helps change data types and gives some formatting control, only in T-SQL
+
+DECLARE
+    @SomeDate DATETIME2(3) = '1793-02-21 11:13:19.033';
+
+SELECT
+    CONVERT(NVARCHAR(30), @SomeDate, 0) AS DefaultForm,
+    CONVERT(NVARCHAR(30), @SomeDate, 1) AS US_mdy,
+    CONVERT(NVARCHAR(30), @SomeDate, 101) AS US_mdyyyy,
+    CONVERT(NVARCHAR(30), @SomeDate, 120) AS ODBC_sec;
+GO
+
+Several codes (0, 1, 101, 120) available: US, British, French, ODBC, ISO, etc
+
+SQL Server 2012 added FORMAT() and is specific to T-SQL (single-threaded and relies on .NET)
+
+FORMAT() is slower, around 50-100K

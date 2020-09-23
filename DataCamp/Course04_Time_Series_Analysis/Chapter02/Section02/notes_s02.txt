@@ -1,0 +1,26 @@
+Translating date strings
+
+SELECT
+    CAST('09/14/99' AS DATE) AS USDate; --fast and ANSI standard
+
+SELECT
+    CONVERT(DATETIME2(3),
+        'April 4, 2019 11:52:29.998 PM') AS April14  --CONVERT is not an ANSI standard, might stick to CAST
+
+parse can handle locale-specifics
+
+--Germany
+SELECT
+    PARSE('25 Dezember 2014' AS DATE
+        USING 'de-de') AS Weihnachten;  --performs slowly
+
+SET LANGUAGE 'FRENCH'
+DECLARE
+    @FrenchDate NVARCHAR(30) = N'18 avril 2019',
+    @FrenchNumberDate NVARCHAR(30) = N'18/4/2019';
+
+SELECT
+    CAST(@FrenchDate AS DATETIME),
+    CAST(@FrenchNumberDate AS DATETIME);
+
+the PARSE() function has some difficulty with strings in YYYYMMDD format and will not consistently parse them correctly.
