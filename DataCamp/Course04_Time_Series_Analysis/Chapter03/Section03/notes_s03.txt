@@ -1,0 +1,16 @@
+Downsampling and upsampling data
+
+periodicity or grain...
+
+Downsampling - cast datetime to date (courser grain)
+SELECT
+    CAST(SomeDate AS DATE) AS SomeDate
+FROM dbo.SomeTable
+
+SELECT
+    DATEADD(HOUR, DATEDIFF(HOUR, 0, SomeDate), 0) AS SomeDate
+FROM dbo.SomeTable
+
+upsampling
+'disaggregate data' - need an allocatoin rule (how do you allocate hourly data to the minute?)
+artificial granularity

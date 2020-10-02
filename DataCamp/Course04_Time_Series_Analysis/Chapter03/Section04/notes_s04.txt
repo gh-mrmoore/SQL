@@ -1,0 +1,45 @@
+ROLLUP, CUBE, GROUPING SETS
+
+ROLLUP works bests with hierarchical data
+
+SELECT
+    t.Month,
+    t.Day,
+    SUM(t.Events) AS Events
+FROM Table
+GROUP BY
+    t.Month,
+    t.Day
+WITH ROLLUP
+ORDER BY
+    t.Month,
+    t.Day;
+
+see full combination of all aggregations across columns
+
+SELECT
+    t.IncidentType,
+    t.Office,
+    SUM(t.Events) AS Events
+FROM Table
+GROUP BY
+    t.IncidentType,
+    t.Office
+WITH CUBE
+ORDER BY
+    t.IncidentType,
+    t.Office;
+
+SELECT
+    t.IncidentType,
+    t.Office,
+    SUM(t.Events) AS Events
+FROM Table
+GROUP BY GROUPING SETS
+(
+    (t.IncidentType, t.Office),
+    ()
+)
+ORDER BY
+    t.IncidentType,
+    t.Office;

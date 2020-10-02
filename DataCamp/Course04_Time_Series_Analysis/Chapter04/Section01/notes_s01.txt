@@ -1,0 +1,62 @@
+Using aggregation functions over windows
+
+ROW_NUMBER() - unique asc integer
+
+RANK() - asc integer, can have ties, can skip numbers
+
+DENSE_RANK() - asc intgers from 1, can have ties, won't skip #s
+
+NTILE - For each row, NTILE returns the number of the group to which the row belongs.
+
+
+SELECT
+    a.RunsScored,
+    ROW_NUMBER() OVER(
+        ORDER BY s.RunsScored DESC
+    ) AS rn
+FROM dbo.Scores s
+ORDER BY
+    s.RunsScored DESC;
+
+
+SELECT
+    a.RunsScored,
+    RANK() OVER (
+        ORDER BY s. RunsScored DESC
+    ) AS rk,
+    DENSE_RANK() OVER (
+        ORDER BY s.RunsScored DESC
+    ) AS dr
+FROM dbo.Scores s
+ORDER BY
+    s.RunsScored DESC;
+
+partitions can be introduced based on column data
+SELECT
+    s.Team,
+    s.RunsScored,
+    ROW_NUMBER() OVER (
+        PARTITION BY s.Team  --defines windows (grouping like teams, etc)
+        ORDER BY s. RunsScored DESC
+    ) AS rn
+FROM dbo.Scores s
+ORDER BY
+    s. RunsScored DESC;
+
+SELECT
+    s.Team,
+    s.RunsScored,
+    MAX(s.RunsScored) OVER (
+        PARTITION BY s.Team
+    ) AS MaxRuns
+FROM dbo.Scores s
+ORDER BY
+    s.RunsScored DESC;
+
+SELECT
+    s.Team,
+    s.RunsScored,
+    MAX(s.RunsScored) OVER() AS MaxRuns
+FROM dbo.Scores s 
+ORDER BY
+    s.RunsScored DESC;

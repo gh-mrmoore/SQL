@@ -1,0 +1,33 @@
+Running totals, moving averages
+
+SELECT
+    s.Team,
+    s.Game,
+    s.RunsScored,
+    SUM(s.RunsScored) OVER (
+        PARTITION BY s.Team
+        ORDER BY s.Game ASC
+        RANGE BETWEEN
+            UNBOUNDED PRECEDING
+            AND CURRENT ROW
+    ) AS TotalRuns
+FROM #Scores s;
+
+Range - range of results
+Rows - specify certain number of rows to include
+
+Range duplicates processed all at once (UNBOUNDED or CURRENT ROW)
+Rows takes duplicates one row at a time - better for moving average
+
+SELECT
+    s.Team,
+    s.Game,
+    s.RunsScored,
+    AVG(s.RunsScored) OVER (
+        PARTITION BY s.Team
+        ORDER BY s.Game ASC
+        ROWS BETWEEN 1 PRECEDING
+            AND CURRENT ROW
+    ) AS AvgRuns
+FROM #Scores s;
+

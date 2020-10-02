@@ -1,0 +1,20 @@
+statistical aggregates
+
+AVG()
+STDEV() - sample standard deviation
+STDEVP() - population standard deviation
+
+VAR() - variance
+VARP() - variance, population
+
+Median???
+PERCENTILE_CONT()
+
+SELECT TOP(1)
+    PERCENTILE_CONT(0.5)
+        WITHIN GRUP (ORDER BY 1.SomeVal DESC)
+        OVER () AS MedianIncidents
+FROM dbo.LargTable 1;
+
+inefficient, takes a lot of time and resources to run...
+

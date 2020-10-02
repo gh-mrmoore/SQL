@@ -1,0 +1,27 @@
+Basic aggregate functions
+
+COUNT() - returns integer
+COUNT_BIG() - returns 64-bit integer
+COUNT(DISTINCT)
+
+SUM()
+
+COUNT(d.YR) - count with non-null YR values
+
+COUNT(NULLIF)
+
+SELECT
+    COUNT(DISTINCT c.CalendarYear) AS Years,
+    COUNT(DISTINCT NULLIF(c.CalendarYear, 2010)) AS Y2
+FROM dbo.Calendar c;
+
+SELECT
+    MAX(CASE WHEN ir.IncidentTypeID = 1
+            THEN ir.IncidentDate
+            ELSE NULL
+        END) AS I1,
+    MAX(CASE WHEN ir.IncidentTypeID = 2
+            THEN ir.IncidentDate
+            ELSE NULL
+        END) AS I2,
+FROM dbo.IncidentRollUP ir;
