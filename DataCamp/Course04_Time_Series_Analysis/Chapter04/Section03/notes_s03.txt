@@ -1,0 +1,24 @@
+LAG() and LEAD()
+
+SELECT
+    dsr.CustomerID,
+    dsr.MonthStartDate,
+    LAG(dsr.NumberOfVisits) OVER (PARTITION BY dsr.CustomerID ORDER BY dsr.MonthStartDate) AS Prior,
+    dsr.NumberOfVisits
+FROM dbo.DaySpaRollup dsr;
+
+LEAD() looks at next record instead of prior record like LAG()
+
+SELECT
+    dsr.CustomerID,
+    dsr.MonthStartDate,
+    dsr.NumberOfVisits
+    LEAD(dsr.NumberOfVisits) OVER (PARTITION BY dsr.CustomerID ORDER BY dsr.MonthStartDate) AS Next,
+FROM dbo.DaySpaRollup dsr;
+
+LAG() and LEAD() can both accept a number to look forward/back
+
+LAG() and LEAD() execute after the WHERE clause
+
+use CTE to prevent losing data that you might want to keep...
+

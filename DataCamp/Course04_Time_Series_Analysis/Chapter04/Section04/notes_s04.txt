@@ -1,0 +1,26 @@
+Maximum levels of overlap
+
+The best result isn't always the most straightforward
+
+Count max people in store at any one time...
+
+SELECT  --break up start and exit time as two different columns
+    o.StartTime AS TimeUTC,
+    1 AS EntryCount,
+    ROW_NUMBER() OVER (ORDER BY o.StartTime) AS StartOrdinal
+FROM #Orders o
+UNION ALL
+SELECT  o.EndTime AS TimeUTC
+    -1 AS EntryCount,
+    NULL AS StartOrdinal
+FROM #Orders o
+
+>>>Put this in to a CTE
+
+SELECT
+    s.TimeUTC,
+    s.EntryCount,
+    s.StartOrdinal,
+    ROW_NUMBER() OVER (ORDER BY TimeUTC, StartOrdinal) AS StartOrEndOrdinal
+FROM StartStopPoints s 
+

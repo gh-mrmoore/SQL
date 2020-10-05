@@ -1,0 +1,18 @@
+Implicit conversion
+
+when comparing values, SQL server will try to automatically (implicitly) convert types
+CAST or CONVERT are explicit conversions by the developer
+
+implicit conversion is done for each row of the query, result is performance hit
+
+data type precedence
+user-defined data types
+datetime
+date
+float
+decimal
+int
+bit
+nvarchar
+varchar
+binary

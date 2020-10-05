@@ -1,0 +1,13 @@
+Explicit conversion
+
+implicit conversions are not controlled by the user...
+
+Explicit conversion done by CAST() or CONVERT()
+
+CAST(expression AS data_type [(length)])
+
+CONVERT(data_type [(length)], expression [,style])
+
+CAST() is SQL standard, CONVERT() is SQL Server-specific
+
+CONVERT() performs slightly better in SQL Server

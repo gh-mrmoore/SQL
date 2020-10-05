@@ -1,0 +1,27 @@
+Using built-in functions is more efficient than writing complex code from scratch.
+
+Most important data types
+Functions for these types
+    Date & time
+    Character/string
+    Numeric operations
+
+exact or approximate numerics
+date & time
+binary
+
+Integers:
+Exact (smallint, intyint, int, bigint)
+Integers (bigint, int, smallint, tinyint)
+
+Decimals:
+precisio => total number of decimal digits that will be stored
+scale => number of decimal digits stored to the right of the decimal point
+
+Approximate:
+Store approx. numberic value (avoid in WHERE with equality)
+
+Date & Time 
+time, date, datetime, datetime2, etc 
+
+unicode can store characters from non-english languages, ie Japanese
