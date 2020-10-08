@@ -1,0 +1,3 @@
+SELECT 
+	SYSUTCDATETIME() AS UTC_HighPrecision,
+	GETUTCDATE() AS UTC_LowPrecision;

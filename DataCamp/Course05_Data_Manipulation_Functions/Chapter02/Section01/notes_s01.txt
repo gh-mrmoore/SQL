@@ -1,0 +1,25 @@
+Functions that return system date and time
+
+Common mistakes:
+> inconsistent formats or patterns
+> arithmetic operations
+> issues with time zones
+
+Time is usually in local time zone, but could be UTC as well...
+
+high precision & less exact
+
+higher
+SYSDATETIME()
+SYSUTCDATETIME()
+SYSUTCDATETIMEOFFSET()
+
+less
+GETDATE()
+GETUTCDATE()
+CURRENT_TIMESTAMP
+
+use CONVERT() to get date only from date time (watch out for midnight UTC vs midnight local)
+
+ditto time...
+

@@ -1,0 +1,10 @@
+functions returning date and time parts
+
+YEAR(date) - returns year from given date
+MONTH(date) - returns month from given date
+DAY(date) - returns day from given date
+DATENAME(datepart, date) - character string representing the specified date part of the given date
+
+DATEPART(datepart, date) - return values are all integers
+
+DATEFROMPARTS(year, month, day) 
