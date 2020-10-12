@@ -1,0 +1,21 @@
+Working with Strings
+
+Functions for positions
+
+LEN()
+CHARINDEX()
+PATINDEX()
+
+LEN() returns count of characters excluding blanks at the end.
+One parameters
+
+CHARINDEX()
+expression_to_find, expression_to_search, starting_index(optional)
+
+PATINDEX()
+returns position of a pattern in an expression
+(%'pattern'%, expression, [location]) - can use wildcards!
+    % allows match of any length
+    _ allows single character match
+    [] allows for any of multiple options
+

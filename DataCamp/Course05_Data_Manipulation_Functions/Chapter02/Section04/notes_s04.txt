@@ -1,0 +1,12 @@
+Validating expression as date
+
+ISDATE(expression)
+
+return 1 if date, time or datetime
+return 0 if datetime2 or other type
+
+SET DATEFORMAT {format}
+valid formats: mdy, dmy, etc
+
+SET LANGUAGE {language}
+sets language for session and can impact ISTDATE()

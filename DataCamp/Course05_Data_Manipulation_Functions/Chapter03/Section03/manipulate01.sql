@@ -1,0 +1,13 @@
+DECLARE @string1 NVARCHAR(100) = 'Chocolate with beans from';
+DECLARE @string2 NVARCHAR(100) = 'has a cocoa percentage of';
+
+SELECT 
+	bean_type,
+	bean_origin,
+	cocoa_percent,
+	-- Create a message by concatenating values with "+"
+	@string1 + ' ' + bean_origin + ' ' + @string2 + ' ' + CAST(cocoa_percent AS nvarchar) AS message1
+FROM ratings
+WHERE 
+	company = 'Ambrosia' 
+	AND bean_type <> 'Unknown';

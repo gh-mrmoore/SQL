@@ -1,0 +1,17 @@
+String Transformation
+
+LOWER(expression) - convert to lower-case
+UPPER(expression) - convert to upper-case
+
+LEFT(expression, number_of_characters)
+RIGHT(expression, number_of_characters)
+
+LTRIM(expression) - remove blanks from left (leading)
+RTRIM(expression) - remove blanks from right (lagging)
+
+TRIM([characters FROM] expression) - removes blanks or other specified characters (SQL Server 2017)
+
+REPLACE(expression, searched_expression, replacement_expression)
+
+SUBSTRING(expression, start, number_of_characters) - index starts at 1
+

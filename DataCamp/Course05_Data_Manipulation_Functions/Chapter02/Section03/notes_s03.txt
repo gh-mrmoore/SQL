@@ -1,0 +1,18 @@
+Performing arithmetic operations on dates
+
+add interval, get difference, etc...
+
+DATEADD() - add datepart and get new dates
+
+DATEDIFF() - get difference between two dates.
+
+Can use arithmetic operators, but results can be unreliable...
+
+DECLARE @date1 datetime = '2019-01-01';
+DECLARE @date2 datetime = '2020-01-01';
+
+adding and subtracting yields an increase or decrease to the date (end up in 1901 or 21xx as the year)
+
+DATEADD(datepart, number, date)
+
+DATEDIFF(datepart, startdate, enddate) - return an integer from year down to nanosecond

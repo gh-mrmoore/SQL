@@ -1,0 +1,19 @@
+Manipulate Groups of Strings
+
+Introduced 2016-2017 SQL Server
+
+CONCAT(string1, string2 [, stringN])
+CONCAT_WS(separator, string1, string2 [, stringN]) - concat with separator
+
+Better than using + because you can do more than strings and it's more reliable
+
+STRING_AGG(expression, separator) [ <order_clause> ]
+
+SELECT
+    YEAR(first_vote_date) AS voting_year,
+    STRING_AGG(first_name, ',') WITHIN GROUP (ORDER BY first_name ASC) AS voters  --order clause is optional
+FROM voters
+GROUP BY YEAR(first_vote_date);
+
+STRING_SPLIT(string, separator) -- opposite of STRING_AGG
+result is a table and can only be used in FROM clause
