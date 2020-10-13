@@ -1,0 +1,13 @@
+Aggregate arithmetic functions
+
+COUNT() - number of items in group
+    COUNT([ALL] expression)
+    COUNT(DISTINCT expression)
+    COUNT(*)
+SUM() - returns sum of all values in group
+    SUM([ALL] expression)
+    SUM(DISTINCT expression)
+MAX() - maximum value in group
+MIN() - minimum value in group
+AVG() - average of a group of values
+

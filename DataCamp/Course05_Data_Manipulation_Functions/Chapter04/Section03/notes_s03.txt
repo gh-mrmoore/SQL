@@ -1,0 +1,17 @@
+Mathematical functions
+
+ABS(numeric_expression) - returns absolute value
+
+SIGN(numeric_expression) - returns -1 for negative, +1 for positive, 0 for 0
+
+CEILING(numeric_expression) - returns smallest integer greater than or equal to expression
+    CEILING(-50.49) - returns -50
+    FLOOR(73.71) returns 73
+FLOOR(numeric_expression) - returns largest integer less than or equal to expression
+ROUND(numeric_expression, length) - numeric value rounded to specified length
+
+POWER(numeric_expression, power) - 8^3
+SQUARE(numeric_expression) - x^2
+SQRT(numeric_expression) - x^(1/2)
+
+expression must be float or capable of being interpreted as float

@@ -1,0 +1,40 @@
+Analytic functions
+Computed on each row rather than groups
+
+FIRST_VALUE(numeric_expression)
+    OVER([PARTITION BY column] ORDER BY column ROW_or_RANGE frame)
+
+LAST_VALUE(numeric_expression)
+    OVER([PARTITION BY column] ORDER BY column ROW_or_RANGE frame)
+
+RANGE BETWEEN start_boundary AND end_boundary
+ROWS BETWEEN start_boundary AND end_boundary
+
+UNBOUNDED PRECEDING - first row in the PARTITION
+UNBOUNDED FOLLOWING - last row in the PARTITION
+CURRENT ROW - current row
+PRECEDING - previous orw
+FOLLOWING - next row
+
+SELECT
+    first_name + ' ' + last_name AS name,
+    gender,
+    total_votes AS votes,
+    FIRST_VALUE(total_votes)
+    OVER (PARTITION BY gender ORDER BY total_votes) AS min_votes,
+    LAST_VALUE(total_votes)
+        OVER (PARTITION BY gender ORDER BY total_votes
+        ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS max_votes
+FROM voters;
+
+LAG() and LEAD() - compare values from previous or following row
+
+SELECT
+    broad_bean_origin AS bean_origin,
+    rating,
+    cocoa_percent,
+    LAG(cocoa_percent) OVER(ORDER BY rating) AS percent_lower_rating,
+    LEAD(cocoa_percent) OVER(ORDER BY rating) AS percent_higher_rating
+FROM ratings
+WHERE company = 'Felchlin'
+ORDER BY rating ASC
