@@ -1,0 +1,20 @@
+Database Views
+
+A view is the result set of a stored query on the data.
+
+A virtual table that is not part of the physical schema.
+
+No need to alter table or repear queries....
+
+CREATE VIEW AS
+SELECT * FROM ____
+....
+
+
+SELECT * FROM INFORMATION_SCHEMA.views;  --see all views, including system views... (POSTGRESQL)
+
+SELECT * FROM INFORMATION_SCHEMA.views
+WHERE table_schema NOT IN ('pg_catalog', 'information_schema');  --exclude system views, POSTGRESQL
+
+Access control, minimal storage for the query, mask query complexity
+

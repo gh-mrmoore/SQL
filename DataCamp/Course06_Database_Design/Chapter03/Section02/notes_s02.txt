@@ -1,0 +1,26 @@
+GRANT privilege(s) _or_ REVOKE privilege(s)
+ON object
+TO role _or_ FROM role
+
+Privileges: SELECT, INSERT, UPDATE, DELETE
+Objects: table, view, schema, etc
+Roles: database user or group of database users
+
+GRANT UPDATE ON ratings TO PUBLIC;
+
+REVOKE INSERT ON films FROM db_user;
+
+some views can be updated (ie, the tables they're based on can be updated)
+
+UPDATE films SET kind = 'Dramatic' WHERE kind = 'Drama';
+doesn't use window or aggregate function
+
+(same for INSERT)
+not a good idea to use views for updates
+
+DROP VIEW view_name [ CASCADE | RESTRICT ];
+RESTRICT returns error if there are objects that depend on the view
+CASCADE drops view and any object depending on that view
+
+CREATE OR REPLACE VIEW view_name AS new_query
+

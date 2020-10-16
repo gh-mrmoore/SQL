@@ -1,0 +1,23 @@
+Two types of views
+
+View 
+> AKA non-materialized views
+
+Materialized Views store query results on disk, not query
+Querying a materialized view means accessing the stored query results
+refreshed or rematerialized when prompted or scheduled
+
+Materialized views great if you have long-running queries
+Caveat, data can be out-of-date if not refreshed
+useful in data warehouses in OLAP
+
+pgSQL:
+CREATE MATERIALIZED VIEW my_mv AS SELECT * FROM existing_table;
+and...
+REFRESH MATERIALIZED VIEW my_mv;
+
+Materialized views often rely on other materialized views (have to be careful when things refresh)
+
+Creates a dependency chain and may not be efficient to refresh everything at the same time (airflow and luigi can help schedule)
+
+Directed Acyclic

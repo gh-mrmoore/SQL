@@ -1,0 +1,43 @@
+Storing Data
+
+Structured Data (defined by schemas)
+Defined data types & relationships
+
+
+
+
+Unstructured Data
+No schemas
+Most data (photos, mp3 files, chat logs)
+
+
+
+Semi-Structured Data
+Self-describing structure 
+NoSQL, XML, JSON
+
+
+Structured data easier to organize and analyze, but can be harder to scale and less flexible
+
+
+Data Warehouse
+> optimized for analytics (OLAP)
+> organized for reading and aggregating data 
+> usually read-only
+> data from multiple sources
+> use Massively Parallel Processing (MPP) to speed up processing times
+> Denormalized schema, dimensional modeling
+>> Data Mart is a subset focusing on a specific item
+
+
+Data Lake
+for storing data of all structures
+using object storage, store massive amounts of data cheaply (petabytes)
+need to catalog well or it becomes a data swamp
+AWS, etc.
+
+ETL or ELT 
+
+Extract-Transform-Load (more traditional)
+
+Extract-Load-Transform has become more common in bigger applications

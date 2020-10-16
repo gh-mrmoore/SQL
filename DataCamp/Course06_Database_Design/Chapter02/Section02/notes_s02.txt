@@ -1,0 +1,14 @@
+Normalized and denormalized databases
+
+Normalized data saves space and eliminates data redundancy, but makes for more joins, longer queries and slower performance
+
+Normalization:
+    enforces data consistency
+    Safer updating, removing and inserting
+    Easier to redesign by extending
+
+OLTP typically highly normalized (write-intensive, prioritize quicker and safer insertion of data)
+OLAP typically less normalized (read-intensive, prioritize quicker queries for analytics)
+
+
+

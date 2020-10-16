@@ -1,0 +1,9 @@
+Star schema - simplest form of dimensional model
+two tables, fact and dimension tables
+
+fact tables hold records of a metric & changes regularly
+
+dimension tables hold descriptions of attributes and does not change as often
+
+normalization - reduce redundancy and increase data integrity, divide tables and link using relationships
+

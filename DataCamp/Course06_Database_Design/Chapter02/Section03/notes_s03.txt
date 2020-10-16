@@ -1,0 +1,25 @@
+Normal forms
+
+> First normal form (1NF)
+>> each record must be unique
+>> each cell must hold one value
+
+> Second normal form (2NF)
+>> satisfies 1NF and...
+>> the primary key is one column (automatically meets 2NF)
+>> each non-key column must be dependent on all the keys if composite primary key
+
+> Third normal form
+>> satisfies 2NF
+>> no transitive dependencies: non-key columns can't depend on other non-key columns
+
+> Elementary key normal form (EKNF)
+> Boyce-Codd normal form (BCNF)
+> Fourth normal form
+> Essential tuple normal form
+> Fifth normal form
+> Domain-key Normal Form (DKNF)
+> Sixth normal form
+
+could have update, insertion or deletion anomalies if we don't normalize enough
+

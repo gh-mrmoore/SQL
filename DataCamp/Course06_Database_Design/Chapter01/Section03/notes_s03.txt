@@ -1,0 +1,19 @@
+Database design
+
+How data is logically stored (how will it be read and updated)?
+
+Model
+> high-level specification for data structure
+>> most popular: relational model 
+>> others: NoSQL, object-oriented model, network model
+
+Schema is a blueprint for the Database
+> defines tables, fields, relationships, indexes, views
+> 
+
+Data Modeling - abstract design...
+> Conceptual - describe entities, relationships, attributes
+> Logical - defines tables, columns, relationships
+> Physical - describes physical storage
+
+

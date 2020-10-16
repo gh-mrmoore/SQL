@@ -1,0 +1,31 @@
+OLTP and OLAP
+
+How to organize and manage data?
+
+Schemas - how to logically organize data
+Normalization - should data have minimal dependency and redundancy?
+Views - what joins will be done most often?
+Access control - should all users have same permissions?
+DBMS - SQL or noSQL???
+
+OLTP - Online Transaction Processing
+> find book prices
+> update latest transaction 
+> track employee hours
+Purpose > support daily transactions
+Design > application-oriented
+Data > up-to-date, operational
+Size > snapshot, gigabytes
+Queries > simple transactions & frequent updates
+Users - thousands
+
+OLAP - Online Analytical Processing
+> calculate best profit margins
+> find customer loyalty
+> determine employee of the month
+Purpose > report & analyze data
+Design > subject-oriented
+Data > consolidated, historical
+Size > archive, terabytes
+Queries > complex, aggregate queries & limited updates
+Users > hundreds
