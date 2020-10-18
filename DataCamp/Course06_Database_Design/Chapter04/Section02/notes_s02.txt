@@ -1,0 +1,30 @@
+Table Partitioning
+
+queries slow as tables grow
+
+partition data to break them up in to smaller pieces...
+
+distribute data over different physical entities
+
+vertical partitioning
+split a (normalized) table by column (linked thru shared key)
+
+Horizontal partitioning (split over rows, ie by timestamp)
+
+Declarative partitioning in pgSQL (since 10)
+
+--example
+CREATE TABLE sales (
+    ...
+    timestamp DATE NOT NULL
+)
+PARTITION BY RANGE (timestamp);
+
+CREATE TABLE sales_2019_q1 PARTITION OF sales
+    FOR VALUES FROM ('2019-01-01') TO ('2019-03-01');
+--etcetera for other partitions
+
+OLAP and OLTP can benefit, but can also be a challenge
+
+massively parallel processing using shards where different data resides on different machines
+

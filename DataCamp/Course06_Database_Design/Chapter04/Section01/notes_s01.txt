@@ -1,0 +1,29 @@
+Database roles and access control
+
+Manage DB access permissions:
+Role definition:
+> can you login?
+> can you create databases?
+> can you write to tables?
+
+Also interact with client authentication system (password)
+
+CREATE ROLE data_analyst;
+
+CREATE ROLE intern WITH PASSWORD 'PasswordForIntern' VALID UNTIL '2020-01-01';
+
+ALTER ROLE admin CREATEROLE;
+
+GRANT and REVOKE privilegse from roles
+
+Roles can be user or group
+
+--create user
+CREATE ROLE alex WITH PASSWORD 'PasswordForIntern' VALID UNTIL '2020-01-01';
+GRANT data_analyst TO alex;
+
+-- remove user from group
+REVOKE data_analyst FROM alex;
+
+roles are longer-lasting than individual user accounts
+

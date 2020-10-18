@@ -1,0 +1,21 @@
+Choosing DBMS
+
+DBMS
+> Data
+> Schema
+> Engine
+
+SQL vs NoSQL
+
+SQL aka RDBMS
+use SQL for managing Data
+pgSQL, OracleSQL, SQL-Server
+
+Non-relational (NoSQL)
+Document-centered, not table-centered
+Good when growing rapidly or analyze large amounts of Data
+> key-value (redis, manage shopping carts for online purchases)
+> document-store (values) MongoDB
+> columnar (big data, everything in its own column, Cassandra)
+> graph database (NEO 4J based on behaviors)
+

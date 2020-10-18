@@ -1,0 +1,16 @@
+Data Integration
+
+Combine data from different tech, sources, formats, etc to provide unified vision of data
+
+Unified Data Model
+> what's the goal?
+>> dashboard, analysis, etc.
+
+Transformations
+extract data then change it to unified format 
+ETL software
+> flexible
+> reliable
+> scalable
+> automated testing and proactive alerts
+> security
