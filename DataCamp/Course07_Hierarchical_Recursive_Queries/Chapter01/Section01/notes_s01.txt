@@ -1,0 +1,41 @@
+CTE recap
+
+CTE is a temporary result set derived from a simple query defined within the execution scope of a single statement
+
+WTIH _CTEtable_ AS
+(
+    --some query
+)
+
+SELECT *
+    FROM _CTEtable_
+
+manage complicated queries
+use within SELECT, INSERT, UPDATE or DELETE
+multiple CTE's in one WITH statement
+Combine several using UNION or JOIN
+substitute for a view depending on permissions
+self-reference a table
+recursion query
+
+WITH JOBS (id, SurName, JobTitle) AS
+(
+    SELECT
+        ID,
+        Name,
+        Position
+    FROM employee
+    WHERE Position like '%Manager%'
+),
+SALARIES (ID, Salary) AS
+(
+    SELECT
+        ID,
+        Salary
+    FROM ITSalary
+    WHERE Salary > 10000
+)
+SELECT JOBS.NAME JOBS.POSITION, JOBS.SALARY
+    FROM JOBS
+    INNER JOIN SALARIES
+    ON JOBS.ID = SALARIES.ID;

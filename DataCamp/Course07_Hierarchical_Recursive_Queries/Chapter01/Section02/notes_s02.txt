@@ -1,0 +1,26 @@
+Intro to recursion
+
+Recursion - repetitive use of a function, etc, until a set condition is met...
+
+Need a termination condition or you get an infinite repetition
+
+Advantages:
+> solve problem if the problem can be broken down in to smaller, similar problems
+> code can be easier to read
+
+Disadvantages:
+> slower execution time
+
+Sum of Numbers
+
+WITH calculate_SumOfNumbers AS
+    ( --Initial Query
+    SELECT 1 AS iteration, 1 AS SumOfNumbers
+    UNION ALL
+    --Recursive section
+    SELECT iteration + 1, SumOfNumbers + (iteration + 1)
+        FROM calculate_SumOfNumbers
+        WHERE iteration < 6
+    )
+SELECT SumOfNumbers
+    FROM calculate_SumOfNumbers;

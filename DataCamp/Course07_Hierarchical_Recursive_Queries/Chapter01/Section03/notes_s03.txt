@@ -1,0 +1,25 @@
+Solve recursive math problems
+
+Count numbers recursively
+number = 1 for iteration = 1,
+number = number + 1 for iteration > 1
+WITH recursion AS (
+    number = 1 -- initial query
+    UNION ALL
+    number = number + 1  -- recursive query
+)
+--statement on CTE 
+SELECT * FROM recursion;
+
+Calculate sum of potencies
+number = 1 for iteration = 1
+number = number + iteration^iteration for iteration > 1
+WITH recursion AS (
+    number = 1  -- initial query
+    UNION ALL
+    number = number + iteration^iteration  --recursive query 
+)
+SELECT * FROM recursion;
+>> 1 + 2^2 + 3^3 = 14
+
+
