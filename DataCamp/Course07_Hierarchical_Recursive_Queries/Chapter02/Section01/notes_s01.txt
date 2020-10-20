@@ -1,0 +1,22 @@
+Intro to recursive CTE
+
+4 parts:
+1) CTE definition
+2) Anchor Member
+3) Recursive Member
+4) Query CTE
+
+WITH cteName AS (
+    -- anchor member
+    initial Query
+    UNION ALL
+    -- recursive member
+    recursive Query
+)
+SELECT * FROM cteName
+
+have to specify if more than 200 steps
+not allowed to have GROUP BY, HAVING, JOIN(LEFT, RIGHT, OUTER), SELECT DISTINCT, TOP, sub-queries
+
+Anchor and recursive member should have the same number of columns
+

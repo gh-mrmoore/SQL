@@ -1,0 +1,6 @@
+Analyze the family tree
+
+COUNT(LEVEL) to get the number of generations
+
+Keep track of parents in each generations
+

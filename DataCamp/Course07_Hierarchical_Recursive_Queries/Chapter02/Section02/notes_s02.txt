@@ -1,0 +1,44 @@
+Working with recursive queries
+
+most common use is to query hierarchical data
+
+>> Get the Hierarchy
+
+WITH hierarchy AS (
+    SELECT ID, Supervisor
+        FROM employee
+        WHERE Supervisor = 0
+    UNION ALL
+    SELECT emp.ID, emp.Supervisor
+        FROM employee emp
+    JOIN employeeHierarchy
+        ON emp.Supervisor = employeeHierarchy.ID
+)
+SELECT * from hierarchy;
+
+>> Get the level of the hierarchy
+WITH hierarchy AS (
+    SELECT ID, Supervisor, 1 AS Level
+        FROM employee
+        WHERE Supervisor = 0
+    UNION ALL
+    SELECT emp.ID, emp.Supervisor, LEVEL + 1
+        FROM employee emp
+    JOIN hierarchy
+    ON emp.Supervisor = hierarchy.ID
+)
+SELECT * FROM hierarchy
+
+>> Combine in to one field
+
+WITH hierarchy AS (
+    SELECT ID, Supervisor, CAST('0' AS VARCHAR(MAX)) AS PATH
+        FROM employee
+        WHERE Supervisor = 0
+    UNION ALL
+    SELECT emp.ID, emp.Supervisor, PATH + '->' + CAST(emp.Supervisor AS VARCHAR(MAX))
+        FROM employee emp
+    INNER JOIN hierarchy
+    ON emp.Supervisor = hierarchy.ID
+)
+SELECT * FROM hierarchy
