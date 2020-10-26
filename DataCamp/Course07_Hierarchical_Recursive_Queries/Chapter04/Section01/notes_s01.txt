@@ -1,0 +1,17 @@
+Travel planning for flight data
+
+WITH flightRoute (Departure, Arrival, stops, totalCost, route) AS (
+    SELECT f.Departure, f.Arrival, 0, Cost,
+        CAST(Departure + '->' + Arrival AS NVARCHAR(MAX))
+            FROM flightPlan f
+            WHERE Departure = 'New York'
+    UNION ALL
+    SELECT p.Departure, f.Arrival, p.stops+1,
+    p.totalCost + f.Cost, p.route + '->' + f.Arrival
+        FROM flightPlan f, flightRoute p
+        WHERE p.Arrival = f.Departure AND p.stops < '...'
+)
+
+SELECT '...'
+    FROM flightRoute
+    WHERE '...';

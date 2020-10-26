@@ -1,0 +1,12 @@
+Assembling a Car
+
+Level 1: SUV, Sedan, etc
+Level 2: Body, Engine, etc
+Level 3: Door, Hood (as part of body), etc
+
+Create data model
+> Create hierarchy (PartID, SubPartID)
+> Create elements to describe characteristics
+
+What level is each component? (ie door is lowest, then up to body, then up to SUV)
+What is the quantity of each component as you build up? (ie 4 wheels, one body, one SUV)

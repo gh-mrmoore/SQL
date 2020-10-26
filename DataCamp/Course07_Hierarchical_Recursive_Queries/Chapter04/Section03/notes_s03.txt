@@ -1,0 +1,16 @@
+Modeling a power grid
+
+Networked data model 
+> 3 ID values (EquipmentID for power lines)
+> first connected power line (EquipmentID_From)
+> second connected power line (EquipmentID_To)
+
+Each power line will have characteristics
+
+voltage, description, construction year, inspection year, inspection result
+
+Grid maintenance
+
+find lines that are connected...
+find lines with bad, exchange or repair condtion
+
