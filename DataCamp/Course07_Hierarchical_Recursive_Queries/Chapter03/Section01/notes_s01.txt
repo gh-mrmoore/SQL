@@ -1,0 +1,25 @@
+Working with Tables
+
+CREATE TABLE ____ (
+    ID INT NOT NULL,
+    Name CHAR(32)
+);
+
+INSERT INTO ____ VALUE (____, ____);
+
+UPDATE ____
+    SET ____ = ____
+    WHERE ____ = ____;
+
+DELETE FROM ____
+    WHERE ____ = ____;
+
+DROP TABLE ____
+
+ALTER TABLE ____
+    ADD ____;
+
+ALTER TABLE ____
+    DROP COLUMN ____
+
+

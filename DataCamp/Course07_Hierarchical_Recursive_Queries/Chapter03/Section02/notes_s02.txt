@@ -1,0 +1,15 @@
+Create relational database models
+
+Declare:
+fieldName fieldType NOT NULL PRIMARY KEY
+
+fieldName fieldType FOREIGN KEY REFERENCES tableName(primaryKey)
+
+Relational algebra
+> form new relation from two or more relations
+
+SELECT 
+UNION
+DIFFERENCE
+JOIN
+

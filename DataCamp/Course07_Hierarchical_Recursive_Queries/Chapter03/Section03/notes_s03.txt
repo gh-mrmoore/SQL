@@ -1,0 +1,10 @@
+Hierarchical Data Models
+
+Tree structure
+One Root Element
+Each child record has one parent record
+
+Networked Data Models
+
+Many-to-Many relations
+Multiple search paths
