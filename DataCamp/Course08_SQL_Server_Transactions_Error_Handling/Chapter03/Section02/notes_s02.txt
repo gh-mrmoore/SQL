@@ -1,0 +1,8 @@
+TRANCOUNT and savepoints
+returns:
+> greater than 1, open transaction
+> 0 means no open transaction
+
+use savepoints to rollback transactions to a given point,
+not necessarily an entire transaction
+

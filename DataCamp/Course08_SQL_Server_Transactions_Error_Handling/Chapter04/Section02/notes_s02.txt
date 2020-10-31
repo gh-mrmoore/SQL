@@ -1,0 +1,11 @@
+READ COMMITTED & REPEATABLE READ
+
+READ COMMITTED is SQL Server default
+> can't read data modified by other transaction that hasn't committed or rolled back
+> eliminates dirty reads
+
+REPEATABLE READ
+> eliminates dirty reads and non-repeatable reads
+> can't read uncommitted data from other transactions
+> if some data is read, other transactions can't modify the data until REPEATABLE READ transaction finishes
+

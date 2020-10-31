@@ -1,0 +1,34 @@
+TRANSACTIONS
+
+The execution of one or more statements so that all or none of the statements are executed
+
+to transfer bank funds:
+1) subtract from account A
+2) add to account B 
+if #2 fails, don't perform #1
+
+
+BEGIN { TRAN | TRANSACTION }
+    [ { transaction_name | @tran_name_variable }
+        [ WITH MARK [ 'description' ] ]  --adds a name, optional
+    ]
+[ ; ]
+
+COMMIT marks the end of a successful transaction 
+
+COMMIT [ { TRAN | TRANSACTION } [transaction_name | tran_name_variable] ]
+    [ WITH (DELAYED_DURABILITY = { OFF | ON } ) ][ ; ]
+
+ROLLBACK TRAN -- reverses changes as if nothing happened
+
+> Use with TRY/CATCH
+
+BEGIN TRY
+    BEGIN TRAN
+        ...SOME STATEMENT(S) HERE
+    COMMIT TRAN;
+END TRY
+BEGIN CATCH
+    ROLLBACK TRAN;
+END CATCH
+

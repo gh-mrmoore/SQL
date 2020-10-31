@@ -1,0 +1,32 @@
+Transaction isolation levels
+
+Concurrency - two transactions with same/similar data executing at the same time
+
+READ COMMITTED (default)
+READ UNCOMMITTED
+REPEATABLE READ
+SERIALIZABLE
+SNAPSHOT
+
+SET TRANSACTION ISOLATION LEVEL 
+    { option }
+
+SELECT CASE transaction_isolation_level
+    [ cases ]
+END AS transaction_isolation_level
+FROM sys.dm_exec_sessions
+WHERE session_id = @@SPID
+
+READ UNCOMMITTED
+least restrictive isolation levels
+read rows modified by other transaction without been committed/rolled back
+
+Dirty reads
+
+also allows non-repeatable reads
+
+Summary
+> doesn't block other transactions, can be faster
+> allows dirty, non-repeatable and phantom reads
+> use when concurrency phenomena are okay
+

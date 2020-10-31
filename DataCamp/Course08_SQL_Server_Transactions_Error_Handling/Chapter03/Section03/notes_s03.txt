@@ -1,0 +1,37 @@
+XACT_ABORT & XACT_STATE
+
+Control errors in transactions
+
+XACT_ABORT > will current transaction automatically be rolled back if an error occurs?
+
+SET XACT_ABORT { ON | OFF }    >>> off is the default setting
+
+SET XACT_ABORT OFF;
+BEGIN TRAN;
+    ...
+    RAISERROR();  >> transactions are executed
+    THROW ...  >> transactions are not executed
+    ...
+COMMIT TRAN
+
+XACT_STATE
+Returns:
+0 > no open transaction
+1 > open and commitable transaction
+-1 > open and uncommitable transaction (aka doomed transaction)
+
+SET XACT_ABORT OFF;   -- change to one to allow it to remain open and commitable
+BEGIN TRY
+    BEGIN TRAN;
+        ...
+        ...
+    COMMIT TRAN;
+END TRY
+BEGIN CATCH
+    IF XACT_STATE() = -1
+        ROLLBACK TRAN;
+    IF XACT_STATE() = 1
+        COMMIT TRAN;
+    SELECT ERROR_MESSAGE() AS error_message;
+END CATCH
+

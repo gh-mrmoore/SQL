@@ -1,0 +1,28 @@
+RAISERROR
+
+or
+
+THROW (Microsoft suggested)
+
+RAISERROR ( { msg_str | msg_id | @local_variable_message },
+    severity,
+    state,
+    [argument [ ,...n] ] )
+    [WITH option [ ,...n ] ]
+
+--RAISERROR with message string:
+
+IF NOT EXISTS (SELECT * FROM staff WHERE staff_id = 15)
+    RAISERROR('No %s with id %d, 16, 1, 'staff memeber', 15);
+
+--RAISERROR with TRY...CATCH
+
+BEGIN TRY
+    IF NOT EXISTS (SELECT * FROM staff WHERE staff_id = 15)
+        RAISERROR('No such staff memeber with such id.', 9, 1);
+        --severity has to be 11 or above to be caught by CATCH
+        -- change from 9 to 16 and catch block will work
+END TRY
+BEGIN CATCH
+    SELECT 'You are in the CATCH block' AS message
+END CATCH

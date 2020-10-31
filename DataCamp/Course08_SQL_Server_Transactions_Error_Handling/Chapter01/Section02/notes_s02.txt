@@ -1,0 +1,8 @@
+Error anatomy, get:
+msg
+severity level
+state (does it display to user?)
+Line
+other informatino on violation
+
+Create your own from 50001

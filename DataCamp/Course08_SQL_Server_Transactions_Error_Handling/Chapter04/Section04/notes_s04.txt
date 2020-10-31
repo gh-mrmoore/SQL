@@ -1,0 +1,16 @@
+SNAPSHOT
+
+every modification stored in the tempDB table
+only see committed changes that occurred before the start of the SNAPSHOT transaction and own changes
+can't see any changes made by other transaction after the start of the SNPASHOT transaction
+
+readings don't block writings and vice versa
+
+can't have update conflicts
+
+prevent dirty, non-repeatable, phantom readings
+doesn't block transactions as serializable doesn
+
+WITH (NOLOCK)
+use under any isolation level when you jjust want to read uncommitted data from specific tables
+

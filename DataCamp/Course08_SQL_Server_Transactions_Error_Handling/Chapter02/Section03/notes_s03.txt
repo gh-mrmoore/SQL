@@ -1,0 +1,34 @@
+Customizing Error Messages in THROW
+
+No placeholders allowed
+
+Option 1
+> use a variable and concatenate the strings
+
+DECLARE @staff_id AS INT = 500;
+DECLARE @my_message NVARCHAR(500) =
+    CONCAT('There is no staff member for id ', @staff_id, ' - Try with another...');
+
+IF NOT EXISTS (SELECT * FROM staff WHERE staff_id = @staff_id)
+    THROW 50000, @my_message, 1;
+
+Option 2
+> use FORMATMESSAGE function
+
+FORMATMESSAGE ( { ' msg_string ' | msg_number } ,
+                [ param_value [ ,...n ] ] )
+
+DECLARE @staff_id AS INT = 500;
+DECLARE @my_message NVARCHAR(500) = 
+    FORMATMESSAGE('There is no staff member for id %d. %s ', @staff_id, 'Try with another one.');
+
+IF NOT EXISTS (SELECT * FROM staff WHERE staff_id = @staff_id)
+    THROW 50000, @my_message, 1;
+
+> using with sys.Messages
+
+sp_addmessage --stored procedure
+    msg_id, severity, msgtext,   --msg_id must be greater than 50000
+    [ language ],
+    [ with_log { 'TRUE' | 'FALSE' } ],
+    [ replace ]

@@ -1,0 +1,8 @@
+SERIALIZABLE
+
+most restrictive isolation level
+
+prevents dirty, non-repeatable and phantom reads
+
+lock based on a range using WHERE clause, otherwise entire table is locked
+

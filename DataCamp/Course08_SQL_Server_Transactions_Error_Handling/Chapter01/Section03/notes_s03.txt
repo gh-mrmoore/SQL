@@ -1,0 +1,17 @@
+Information about errors
+
+ERROR_NUMBER() - returns number of the error 
+ERROR_SEVERITY() - returns the error severity (11-19)
+ERROR_STATE() - returns the state of the error
+ERROR_LINE() - returns the number of the line of the error 
+ERROR_PROCEDURE() - returns name of stored procedure/trigger
+ERROR_MESSAGE() - returns the text of the error message 
+
+BEGIN TRY
+    ...some command(s) here
+END TRY
+BEGIN CATCH
+    SELECT ERROR_NUMBER() AS Error_number 
+    ...add other methods as needed
+END CATCH
+
