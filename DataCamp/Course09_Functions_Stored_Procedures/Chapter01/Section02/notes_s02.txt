@@ -1,0 +1,12 @@
+Variables for datetime data
+
+DECLARE @______ AS ______
+can be a table, datetime, string, etc...
+
+CAST() to convert to a different data type
+> can use + operator to combine
+
+CAN specify or SELECT data in to table variables, but more than 
+100 rows can impact performance
+
+

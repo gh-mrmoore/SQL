@@ -1,0 +1,25 @@
+Execution of functions:
+
+Scalar with SELECT
+SELECT dbo.GetTomorrow()
+
+Scalar with EXEC 
+DECLARE @TotalRideHrs AS numeric
+EXEC @TtoalRideHrs = dbo.GetRidHrsOneDay @DateParm = '1/15/2017'
+SELECT
+    'Total Ride Hours for 1/15/2017:',
+    @TotalRideHrs
+
+Can also select information to be passed in to a function:
+DECLARE @DateParm AS date = 
+(SELECT TOP 1 CONVERT(date, PickupDate)
+    FROM YellowTripData
+    ORDER BY PickupDate DESC)
+SELECT @DateParm, dbo.GetRideHrsOneDay (@DateParm)
+
+can execute table values using SELECT statement
+
+SELECT TOP 10 *
+FROM dbo.SumLocationStats('1/09/2017')
+ORDER BY RideCount DESC 
+

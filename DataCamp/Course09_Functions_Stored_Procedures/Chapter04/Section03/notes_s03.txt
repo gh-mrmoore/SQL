@@ -1,0 +1,6 @@
+Formatting tools
+
+SQL defaults to an alphabetical sort
+
+only use format when no further calculations are needed on values
+

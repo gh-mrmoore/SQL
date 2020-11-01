@@ -1,0 +1,27 @@
+Maintaining UDFs (User-defined functions)
+
+ALTER functions
+
+ALTER FUNCTION _____ (input params)
+....
+
+CREATE OR ALTER FUNCTION ____ (input params)
+....
+
+
+ALTER can't be used to make structural changes, must DROP and then CREATE
+
+Determinism
+> is when returns the same result given the same database state and input
+> is not when it doesn'the
+
+Schemabinding
+> specifies the schema is bound to the database objects it references
+> prevents chagnes tot he schema if schema bound objects are referencing it
+
+CREATE OR ALTER FUNCTION _____ ()
+RETURNS _____ WITH SCHEMABINDING
+AS
+BEGIN
+RETURNS
+....

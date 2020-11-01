@@ -1,0 +1,17 @@
+EDA & Imputation
+
+Case Study
+Average fare per distance, ride count & total ride time
+each day per borough?
+
+EDA
+> dates in future?
+> start date before the end date?
+
+Data Imputation
+Mean >> replace missing data with the Mean
+Hot Deck >> missing is set to a random value from data-set
+    (SELECT TOP 1 ____ FROM _____ TABLESAMPLE (x rows) WHERE _____)
+Missing >> just exclude incorrect/invalid data from results
+
+Each option injects bias and can increase the occurrence of similar records

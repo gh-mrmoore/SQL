@@ -1,0 +1,25 @@
+Error Handling - TRY - CATCH
+
+ALTER PROCEDURE dbo.cusp_TripSummaryCreate
+    @TripDate nvarchar(30),
+    @RideHrs numeric,
+    @ErrorMsg nvarchar(max) = null OUTPUT
+AS
+BEGIN
+    BEGIN TRY
+        INSERT INTO TripSummary (Date, TripHours)
+        VALUES (@TripDate, @RideHrs)
+    END TRY
+    BEGIN CATCH
+        SET @ErrorMsg = 'Error_Num: ' + 
+        CAST (ERROR_NUMBER() AS varchar) + 
+        ' Error_Sev: ' + 
+        CAST(ERROR_SEVERITY() AS varchar) +
+        ' Error_Msg: ' + ERROR_MESSAGE()
+    END CATCH
+END
+
+THROW vs RAISERROR
+
+THROW - statements following WILL NOT be executed
+RAISERROR - generates new error and can't access details of original error & statements following can be executed

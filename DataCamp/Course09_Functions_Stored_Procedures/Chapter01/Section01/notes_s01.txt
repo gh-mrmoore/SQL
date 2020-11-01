@@ -1,0 +1,11 @@
+Exploratory Data Analysis (EDA)
+
+EDA is an iterative process
+
+Look for trends and anomalies (outliers) to reduce having to go back over the data later
+
+CONVERT ()
+DATEPART()
+DATENAME()
+DATEDIFF()
+

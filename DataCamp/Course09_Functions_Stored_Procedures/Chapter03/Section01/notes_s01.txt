@@ -1,0 +1,33 @@
+Stored Procedures (SP)
+
+SP's are routines that:
+> accept input parameters
+> perform actions(EXECUTE, SELECT, INSERT, UPDATE, etc)
+> return status (success or failure)
+> return output parameters (but no table values)
+> reduce execution time
+> reduce network traffic
+> improve security
+
+CREATE PROCEDURE dbo.cuspGetRideHrsOneDay
+    @DateParm date,
+    @RideHrsOut numeric OUTPUT
+AS
+SET NOCOUNT ON  --optional, but considered best practice to prevent the number of rows being affected from being returned
+BEGIN
+SELECT
+    @RideHrsOut = SUM(
+        DATEDIFF(second, PickupDate, DropoffDate)
+    ) / 3600
+FROM YellowTripData
+WHERE CONVERT(date, PickupDate) = @DateParm
+RETURN
+END;
+......
+
+output parameter vs. return values
+OP can be any data type, can declare several in each SP, cannot be table-valued
+
+RV
+indicates success or failure, integer only, 0 for success, non-zero for failure
+

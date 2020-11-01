@@ -1,0 +1,18 @@
+EXECute Stored Procedures
+
+>>No output parameter or return value:
+EXEC dbo.cusp_TripSummaryUpdate
+    @TripDate = '1/5/2017'
+    @TripHours = '300'
+
+
+>>With output parameter
+DECLARE @RideHrs as numeric(18,0)
+
+EXEC dbo.cuspSumRideHrsOneDay
+    @DateParm = '1/5/2017',
+    @RideHrsOut = @RideHrs OUTPUT 
+
+SELECT @RideHrs as TotalRideHrs
+
+

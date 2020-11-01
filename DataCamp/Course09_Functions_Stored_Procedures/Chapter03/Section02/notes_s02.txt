@@ -1,0 +1,5 @@
+CRUD
+
+Use SPs for CRUD to decouple SQL code from other application layers
+> improves security
+> better performance

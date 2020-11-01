@@ -1,0 +1,15 @@
+Scalar user-defined functions
+
+accept input, perform action, return result (single scalar value or table result set)
+
+reduce execution time, network traffic
+allows for modular programming
+
+Separate functionality in to independent, interchangeable modules
+
+Syntax:
+
+CREATE FUNCTION GetTomorrow()
+    RETURNS date AS BEGIN
+RETURN (SELECT DATEADD(DAY, 1, GETDATE()))
+end

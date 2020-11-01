@@ -1,0 +1,4 @@
+Date Manipulation
+
+GETDATE() returns current time-stamp
+

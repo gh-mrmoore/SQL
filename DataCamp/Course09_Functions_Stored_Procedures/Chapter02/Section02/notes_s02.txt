@@ -1,0 +1,34 @@
+Table-valued UDFs
+
+Inline or multi-statement
+
+Inline:
+
+CREAT FUNCTION SumLocationStats (@StartDate AS datetime = '1/1/2017')
+RETURNS TABLE AS RETURN 
+SELECT
+    PULocationID AS PickupLocation,
+    COUNT(ID) AS RideCount,
+    SUM(TripDistance) AS TotalTripDistance
+FROM YellowTripData
+WHERE CAST (PickupDate AS Date) = @StartDate
+GROUP BY PULocationID;
+
+table function doesn't require begin/end if it's a single statement
+
+Multi:
+
+CREATE FUNCTION CountTripAvgFareDay (@Month char(2), @Year char(4))
+RETURNS @TripCountAvgFare TABLE (
+    DropOffDate date, TripCount int, AvgFare numeric
+) AS BEGIN INSERT INTO @TripCountAvgFare
+SELECT
+    CAST(DropOffDate as date),
+    COUNT(ID),
+    AVG(FareAmount) AS AvgFareAmt
+FROM YellowTripData
+WHERE
+    DATEPART(month, DropOffDate) = @Month
+    AND DATEPART(year, DropOffDate) = @Year
+GROUP BY CAST(DropOffDate AS date)
+RETURN END;
