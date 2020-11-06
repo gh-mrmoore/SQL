@@ -1,0 +1,6 @@
+Trigger or regular stored procedure?
+Triggers don’t allow parameters or transactions and cannot return values as output, stored procedures have to be called explicitly
+
+Trigger or computed column?
+Trigger can use columns from other tables for calculations, computed columns cannot
+

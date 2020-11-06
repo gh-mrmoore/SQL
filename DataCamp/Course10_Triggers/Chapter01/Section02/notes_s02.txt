@@ -1,0 +1,13 @@
+Using DML Triggers
+
+> Triggers can...
+>> Initiate actions when manipulating data or preventing data manipulation
+>> Track data or database object changes
+>> User-auditing and database security
+
+AFTER
+> run a cleansing procedure after a large database insertion
+> send a report after a set of actions have been taken
+
+INSTEAD of
+> 

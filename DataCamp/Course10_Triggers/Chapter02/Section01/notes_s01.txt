@@ -1,0 +1,24 @@
+AFTER Triggers (DML)
+can also be used on DDL statements
+
+perform set of actions when fired
+
+INSERT, UPDATE, DELETE
+
+Must have:
+> table or view for DML statements
+> trigger attached to same table/view
+> description
+> trigger-firing event
+> unique trigger name
+
+CREATE TRIGGER ________
+ON ________
+AFTER ________
+AS
+    INSERT INTO ________ ()
+    SELECT ________
+    FROM deleted;
+
+inserted and deleted tables are created automatically by SQL server and are used by DML Triggers
+

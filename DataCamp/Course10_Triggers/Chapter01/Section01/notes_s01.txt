@@ -1,0 +1,39 @@
+Building and optimizing triggers
+
+special type of stored procedure
+executed when certain events occur on the server
+
+
+Data Manipulation Language
+> INSERT, DELETE, UPDATE
+
+Data Definition Language
+> CREATE, ALTER, DROP
+
+Logon triggers
+
+Trigger Types
+> AFTER trigger (original statement executes, then additional statements are triggered)
+>> rebuild index or notify admin
+
+> INSTEAD OF trigger (will execute custom code instead of executing original statement)
+>> prevent insertions, updates, deletions and more...
+
+-- create trigger with descriptive name
+CREATE TRIGGER __________
+-- attach to a table
+ON ___________
+-- trigger behavior type
+AFTER INSERT
+--begin trigger workflow
+AS
+-- trigger action
+PRINT ('Data was instered.');
+
+>>>OR<<<
+
+CREATE TRIGGER __________
+ON __________
+INSTEAD OF DELETE
+AS
+PRINT('You are not allowed to delete rows from this table');

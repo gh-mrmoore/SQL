@@ -1,0 +1,29 @@
+DDL triggers
+
+Respond to CREATE, ALTER, DROP
+
+only used AFTER
+
+created at database or server level
+
+no special tables, but can implement user-defined tables for tracking
+
+use FOR keyword instead of AFTER to minimize potential for confusion between DDL and DML triggers
+
+CREATE TRIGGER ___________
+ON database
+FOR CREATE_TABLE,
+    ALTER_TABLE,
+    DROP_TABLE
+AS
+    INSERT INTO ______________ (EventData, ChangeBy)
+    VALUES (EVENTDATA(), USER);
+
+can rollback actions:
+
+CREATE TRIGGER ___________
+ON DATABASE
+FOR DROP_TABLE
+AS
+    RAISERROR('NO DELETIONS', 16, 1);
+    ROLLBACK;

@@ -1,0 +1,13 @@
+Logon triggers
+
+after authentication, before session established
+
+only attacched at the server level
+
+CREATE TRIGGER LogonAudit
+ONALL SERVER WITH EXECUTE AS 'sa'   --run under built-in admin account
+FOR LOGON
+AS
+    INSERT INTO ServerLogonLog
+        (data...);
+

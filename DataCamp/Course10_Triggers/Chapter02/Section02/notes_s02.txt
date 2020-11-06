@@ -1,0 +1,15 @@
+INSTEAD OF triggers (DML)
+
+cannot be used for DDL statements
+
+supplants the DML event (INSERT, UPDATE, DELETE)
+
+don't allow row updates on certain tables
+prevent deletion of data on tables
+etc.
+
+CREATE TRIGGER __________
+ON __________
+INSTEAD OF UPDATE
+AS
+    RAISERROR('updates not allowed', 16, 1);
