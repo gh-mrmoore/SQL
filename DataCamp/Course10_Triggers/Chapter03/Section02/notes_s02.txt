@@ -1,0 +1,17 @@
+AFTER triggers use cases (DML)
+
+keeping historical data in separate tables
+
+CREATE TRIGGER __________
+ON __________
+AFTER INSERT, UPDATE    -- include trigger on both types to ensure that all changes are caught
+AS
+    INSERT INTO (____________)
+
+table auditing using triggers
+
+CREATE TRIGGER __________
+ON __________
+AFTER INSERT, UPDATE, DELETE
+AS
+    DECLARE @Insert

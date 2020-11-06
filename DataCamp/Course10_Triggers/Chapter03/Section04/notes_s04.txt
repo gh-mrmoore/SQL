@@ -1,0 +1,9 @@
+DDL trigger use-cases
+
+views, indecies, tables, statistics, roles, 
+
+Database-Level
+> Auditing (track changes)
+
+can't use INSTEAD OF, but can use ROLLBACK to prevent actions/changes
+

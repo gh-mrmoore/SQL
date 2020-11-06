@@ -1,0 +1,9 @@
+INSTEAD OF -> use cases
+
+prevent operations from happening
+
+prevent updates from non-administrator roles/users
+send email notices when certain actions are attempted
+
+can use conditional logic to determine if the operation is valid
+

@@ -1,0 +1,24 @@
+Trigger limitations
+
+Advantages
+> database integrity
+> enforce business rules directly
+> control on which statements are allowed
+> complex logic triggered by single event
+
+
+Disadvantages
+> difficult to view and detect
+> invisible to client applications (difficult to trace)
+> can be hard to follow logic when troubleshooting
+> can negatively impact server performance
+
+SELECT * FROM sys.server_triggers; -- finds server-level triggers
+SELECT * FROM sys.triggers;  --database and table level triggers
+
+Best Practices
+> well-documented database design
+> keep trigger designs as simple as possible
+> avoid over-use
+
+d
