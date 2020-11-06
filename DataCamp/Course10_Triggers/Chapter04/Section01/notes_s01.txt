@@ -1,0 +1,26 @@
+Alter or delete triggers
+
+DROP TRIGGER _____________;  --give trigger name
+
+DROP TRIGGER _____________ ON DATABASE;   -- give trigger name and delete on the database level
+
+DROP TRIGGER _____________ ON ALL SERVER;   -- give trigger name and delete on the server level
+
+deleting is permanent
+
+To Disable...
+> disabling does not delete
+DISABLE TRIGGER _____________ ON _____________;  -- provide trigger name and table name
+DISABLE TRIGGER _____________ ON DATABASE;  -- provide trigger name and specify database level
+DISABLE TRIGGER _____________ ON ALL SERVER;  -- provide trigger name and specify the server level
+
+To enable...
+ENABLE TRIGGER _____________ ON _____________;  --provide trigger name and scope (table, database or server)
+
+To alter...
+
+ALTER TRIGGER _____________
+ON _____________
+INSTEAD OF _____________
+AS
+    PRINT 'Some text or other action/code here';

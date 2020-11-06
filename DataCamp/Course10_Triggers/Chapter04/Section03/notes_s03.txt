@@ -1,0 +1,27 @@
+Troubleshooting Triggers
+
+Tracking trigger executions:
+
+SELECT * FROM sys.dm_exec_trigger_stats;
+
+Custom solution:
+> use trigger definition to update a tracking table for future reference
+
+ID triggers attached to a table...
+> query
+SELECT name AS TableName
+    object_id AS TableID
+FROM sys.objects
+WHERE name = 'Products';
+
+SELECT o.name AS TableName
+        o.object_id AS TableID
+        t.name AS TriggerName
+        t.object_id AS TriggerID
+        t.is_disabled AS IsDisabled 
+        t.is_instead_of_trigger AS IsInsteadOf 
+FROM sys.objects AS o
+INNER JOIN sys.triggers AS t ON t.parent_id = o.object_id 
+WHERE o.name = 'Products';
+
+> View trigger
