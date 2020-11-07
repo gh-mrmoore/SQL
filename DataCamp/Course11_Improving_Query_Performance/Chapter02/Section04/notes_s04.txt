@@ -1,0 +1,11 @@
+Managing duplicates
+
+use DISTINCT or UNION to remove duplicates
+
+DISTINCT when we only want individual results, but aggreate calculations could require using GROUP BY
+
+UNION can eliminate duplicates from appended queries/joins that would result in duplicates
+
+always use with caution 
+may use an internal sorting mechanism that can result in longer query times
+

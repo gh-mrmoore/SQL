@@ -1,0 +1,4 @@
+Consistent formatting makes queries easier to read, interpret and debug.
+
+Comment using /* block comment */ or -- line comment
+

@@ -1,0 +1,13 @@
+Interrogation after SELECT
+
+query should only select columns that we need
+joins can return duplicates that aren't necessary
+
+use TOP to limit the number or PERCENT of rows returned
+
+TOP - MS SQL
+ROWNUM - Oracle
+LIMIT - pgSQL
+
+ORDER BY can slow performance
+

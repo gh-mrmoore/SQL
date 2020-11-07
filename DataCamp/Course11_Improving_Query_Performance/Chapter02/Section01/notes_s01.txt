@@ -1,0 +1,6 @@
+Filtering with WHERE
+
+WHERE is processed after FROM but before SELECT, which may, sometimes, affect results
+>> may necessitate the use of sub-queries in certain instances
+>> could also use calculations in the WHERE clause, but complexity of calculations could increase query times
+

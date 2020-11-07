@@ -1,0 +1,23 @@
+Query Order
+
+Syntax Order vs Processing Order
+
+SELECT Country, Place, Magnitude    Syntax1     Processing3
+FROM Earthquakes                    Syntax2     Processing1
+WHERE Magnitude >= 9                Syntax3     Processing2
+ORDER BY Magnitude DESC;            Syntax4     Processing4
+
+>> errors returned based on processing order
+
+Logical Processing Order
+FROM
+ON
+JOIN
+WHERE
+GROUP BY
+HAVING
+SELECT
+DISTINCT
+ORDER BY
+TOP
+

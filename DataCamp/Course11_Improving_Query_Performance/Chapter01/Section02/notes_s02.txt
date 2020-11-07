@@ -1,0 +1,7 @@
+Aliasing
+
+Provide ID, short code or name
+to tables, columns or sub-queries
+Only apply during the running of a query and may be required
+
+ID joined tables, ID new columns, avoid repetitive or long names
