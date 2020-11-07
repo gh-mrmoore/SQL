@@ -1,0 +1,8 @@
+Presence and absence
+
+INTERSECT or EXCEPT
+
+great for interrogation and removing duplicates
+
+number and order of columns must be the same, though
+

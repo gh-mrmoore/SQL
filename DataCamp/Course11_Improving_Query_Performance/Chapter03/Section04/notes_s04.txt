@@ -1,0 +1,9 @@
+Alternative Methods 2
+
+can also use INNER JOIN and exclusive LEFT OUTER JOIN to check for the presence of data in related tables
+
+SELECT ______, ______, ______
+FROM ______
+LEFT OUTER JOIN ______
+    ON ______ = ______
+WHERE ______ IS NULL;

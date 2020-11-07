@@ -1,0 +1,5 @@
+Final notes
+
+time usu. recorded in milliseconds
+
+larger queries could run minutes or up to an hour or more

@@ -1,0 +1,17 @@
+Sub-queries
+
+results from a sub-query is processed first before being returned to an outer query for use
+
+FROM > sub-query acts as a virtual table or data source
+
+WHERE > returns a condition to the outer query 
+
+SELECT > to derive a new column
+
+uncorrelated > do not contain a reference to the outer query and CAN run independently of the outer query
+>> used with WHERE and FROM 
+correlated > include reference to outer query and cannot run independently
+>> used with WHERE and SELECT
+
+can also be used instead of INNER JOIN
+

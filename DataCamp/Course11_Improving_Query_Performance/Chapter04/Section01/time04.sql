@@ -1,0 +1,1 @@
+SET STATISTICS TIME OFF -- Turn the time command off

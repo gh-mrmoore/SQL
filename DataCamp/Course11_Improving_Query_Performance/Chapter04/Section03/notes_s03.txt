@@ -1,0 +1,23 @@
+Indexes
+
+can improve query performance
+
+improve speed of accessing data
+used to locate data quikcly without having to scan entire table
+typically done by DBA
+
+Clustered
+> akin to a dictionary
+> table data pages are order by the column(s) in the index
+> only one per table
+> B-tree structure (root node, branch node, leaf node) - upside-down tree
+
+
+
+Non-clustered
+> akin to an index at the back of a book
+> pointers to unorder table data pages
+> table can have multiple
+
+USE statistics io to determine performance
+

@@ -1,0 +1,10 @@
+Time stats
+
+SSMS tools
+STATISTICS TIME command
+> gives time stats output
+> CPU time - actual time taken by server processors
+> elapsed time - total time taken to return results to us
+
+run SET STATISTICS TIME ON before running query to get the time stats back
+

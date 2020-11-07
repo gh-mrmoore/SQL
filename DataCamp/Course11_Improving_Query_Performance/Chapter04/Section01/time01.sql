@@ -1,0 +1,1 @@
+SET STATISTICS TIME ON -- Turn the time command on

@@ -1,0 +1,11 @@
+Execution Plans
+
+Considerations ...
+processor usage
+memory usage
+data pages read
+
+read from right to left
+
+Can tell:
+> if an index is accessed

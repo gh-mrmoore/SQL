@@ -1,0 +1,1 @@
+SET STATISTICS IO ON -- Turn the IO command on

@@ -1,0 +1,13 @@
+Alternative Methods 1
+
+EXISTS, NOT EXISTS, IN
+
+EXISTS
+> looks for matches and returns true or false
+> will stop searching the sub-query when the condition is TRUE
+
+IN
+> matches are returned
+> collects all the results from a sub-query before passing to the outer query
+
+
